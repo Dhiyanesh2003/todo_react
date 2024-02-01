@@ -1,0 +1,208 @@
+* {
+    font-family: "Roboto Mono", monospace;
+}
+
+html,
+body {
+    background-color: rgb(238, 238, 238) !important;
+}
+
+.main-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    padding: 20px 40px;
+}
+
+.d-flex-justify-content-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-container h5 {
+    color: green;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+#new {
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#edit,
+#add {
+    font-size: 15px;
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+#name,
+#editname {
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    padding: 5px 10px 5px 15px;
+}
+
+/* #form {
+    display: none;
+} */
+.mr-1{
+    margin-right: 10px !important;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border-bottom: 3px solid rgb(224, 224, 224) !important;
+    text-align: left;
+    padding: 8px;
+}
+
+.br-1 {
+    border-right: 3px solid rgb(224, 224, 224) !important;
+}
+
+th {
+    border-top: 3px solid rgb(224, 224, 224) !important;
+    background-color: rgb(179, 229, 182);
+}
+
+td {
+    background-color: rgb(211, 211, 211);
+}
+
+#ro1 {
+    min-width: 60px !important;
+}
+
+.ro2 {
+    word-break: break-all;
+}
+
+.ro3 {
+    min-width: 130px !important;
+}
+
+.delete {
+    border: none;
+    background-color: rgb(209, 38, 38);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.done {
+    border: none;
+    background-color: rgb(34, 117, 212);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.edit {
+    border: none;
+    background-color: rgb(90, 39, 173);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.donee {
+    border: none;
+    background-color: rgb(119, 119, 119);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+#editForm {
+    display: none;
+}
+
+#search {
+    border: none;
+    outline: none;
+    padding: 5px 5px 5px 15px;
+    border-radius: 7px;
+}
+
+@media screen and (max-width: 400px) {
+    .main-container {
+        margin: 0px;
+    }
+
+    html {
+        background-color: rgb(224, 224, 224);
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .main-container {
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .d-flex-justify-content-between {
+        display: unset;
+    }
+}
+
+#profile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border: 3px solid green;
+    border-radius: 50%;
+}
+
+#profile:hover {
+    cursor: pointer;
+}
+
+.sort button {
+    color: green;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#all {
+    background-color: green;
+    color: white;
+}
+#profile-info{
+    display: none;
+    padding: 20px;
+    padding-top: 20px;
+    color: white;
+    position: fixed;
+    top: 63px;
+    right: 20px;
+    z-index: 1;
+    background-color: rgb(136, 136, 136);
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+}

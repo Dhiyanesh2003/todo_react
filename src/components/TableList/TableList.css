@@ -1,0 +1,69 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border-bottom: 3px solid rgb(224, 224, 224) !important;
+    text-align: left;
+    padding: 8px;
+}
+
+.br-1 {
+    border-right: 3px solid rgb(224, 224, 224) !important;
+}
+
+th {
+    border-top: 3px solid rgb(224, 224, 224) !important;
+    background-color: rgb(179, 229, 182);
+}
+
+td {
+    background-color: rgb(211, 211, 211);
+}
+
+#ro1 {
+    min-width: 60px !important;
+}
+
+.ro2 {
+    word-break: break-all;
+}
+
+.ro3 {
+    min-width: 130px !important;
+}
+
+.delete {
+    border: none;
+    background-color: rgb(209, 38, 38);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.done {
+    border: none;
+    background-color: rgb(34, 117, 212);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.edit {
+    border: none;
+    background-color: rgb(90, 39, 173);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.donee {
+    border: none;
+    background-color: rgb(119, 119, 119);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
