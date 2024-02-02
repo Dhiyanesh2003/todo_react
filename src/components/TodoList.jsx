@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './TodoList.css'
-import profile from './profile.jpg'
 
 const TodoList = () => {
 
@@ -8,6 +7,7 @@ const TodoList = () => {
 
     const [add, setAdd] = useState(false)
     const [edit, setEdit] = useState(false)
+    const [editVal, setEditVal] = useState('')
 
     const [editKey, setEditKey] = useState(0)
     let count = 0;
@@ -21,7 +21,6 @@ const TodoList = () => {
         if (data) {
             setMyData(JSON.parse(data))
         }
-        console.log("hello 1")
     }, []);
 
     useEffect(() => {
@@ -31,7 +30,6 @@ const TodoList = () => {
             return;
         }
         localStorage.setItem('myData', JSON.stringify(myData));
-        console.log("hello 2")
     }, [myData]);
 
     const newStyle = {
@@ -56,12 +54,12 @@ const TodoList = () => {
     }
 
     const handleEditChange = (e) => {
-
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
     const handleEdit = (e) => {
         e.preventDefault();
+        // setEditVal(myData.editKey)
         setMyData((prevD) => ({...prevD, [editKey]: formData.edit}))
         setEdit(false)
         setFormData((prevD) => ({...prevD, [editKey]: null}))
@@ -79,14 +77,18 @@ const TodoList = () => {
         setFormData((prevD) => ({...prevD, [key]: myData.key}))
     }
 
+    const done = (key) => (e) => {
+        setMyData((prevD) => ({...prevD, [key]: '#'+myData[key]}))
+    }
+
     return (
         <>
-            <img id="profile" src={profile} alt="profile" onClick="showDetails()" />
+            {/* <img id="profile" src={profile} alt="profile" onClick="showDetails()" />
             <div id="profile-info">
                 <p>John Doe</p>
                 <p>Intern, Delivery</p>
                 <p>JMAN Group</p>
-            </div>
+            </div> */}
             <div className="d-flex-justify-content-between">
                 <div className="d-flex">
                     <i style={newStyle} className='bx bxs-badge-check'></i>
@@ -96,12 +98,12 @@ const TodoList = () => {
                 <button id="new" onClick={showForm}><i className='bx bx-plus'></i>New</button>
             </div>
             <form onSubmit={handleSubmit} id="form" style={add ? { display: "block" } : { display: "none" }} className="mb-4">
-                <input className="mt-4 mb-3" type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Enter the task" />
+                <input className="mt-4 mb-3" type="text" name="name" id="name" onChange={handleChange} placeholder="Enter the task" />
                 <br />
                 <button id="add" onClick={handleSubmit}>Add New Task</button>
             </form>
             <form onSubmit={handleEdit} id="editForm" style={edit ? { display: "block" } : { display: "none" }} className="mb-4">
-                <input className="mt-4 mb-3" type="text" name="edit" id="editname" value={formData.edit} onChange={handleEditChange} placeholder="Edit the task" />
+                <input className="mt-4 mb-3" type="text" name="edit" id="editname" onChange={handleEditChange} placeholder="Edit the task" />
                 <br />
                 <button id="edit" onClick={handleEdit}>Edit Task</button>
             </form>
@@ -123,22 +125,22 @@ const TodoList = () => {
                             Object.entries(myData).map(([key, value]) => (
                                 <>
                                     {value !== null && value.charAt(0) == "#" && !window.vpen ? (
-                                        <tr>
-                                            <td class="ro2 br-1"><del>{value.substring(1)}</del></td>
-                                            <td class="ro3">
+                                        <tr key={key}>
+                                            <td className="ro2 br-1"><del>{value.substring(1)}</del></td>
+                                            <td className="ro3">
                                                 <form onSubmit={deleteItem(key)}>
-                                                    <button class="delete mb-1" onClick={deleteItem(key)}><i class='bx bx-trash'></i></button>
+                                                    <button className="delete mb-1" onClick={deleteItem(key)}><i className='bx bx-trash'></i></button>
                                                 </form>
                                             </td>
                                         </tr>
                                     ) : null}
                                     {value !== null && value.charAt(0) != "#" && !window.vcom ? (
-                                        <tr>
-                                            <td class="ro2 br-1">{value}</td>
-                                            <td class="ro3">
-                                                <button class="done mr-1 mb-1" onClick="done(${key})"><i class='bx bx-check'></i></button>
-                                                <button class="edit mr-1 mb-1" onClick={editTask(key)}><i class='bx bxs-pencil'></i></button>
-                                                <button class="delete mb-1" onClick={deleteItem(key)}><i class='bx bx-trash'></i></button>
+                                        <tr key={key}>
+                                            <td className="ro2 br-1">{value}</td>
+                                            <td className="ro3">
+                                                <button className="done mr-1 mb-1" onClick={done(key)}><i className='bx bx-check'></i></button>
+                                                <button className="edit mr-1 mb-1" onClick={editTask(key)}><i className='bx bxs-pencil'></i></button>
+                                                <button className="delete mb-1" onClick={deleteItem(key)}><i className='bx bx-trash'></i></button>
                                             </td>
                                         </tr>
                                     ) : null}
